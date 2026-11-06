@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Crie sua conta Ethereal X e comece a assistir filmes e séries premium agora mesmo." />
+  <title>Criar conta — Ethereal X</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="auth-center-page">
+  <div class="auth-card">
+    <div class="auth-card-brand">
+      <div id="logoHost" role="img" aria-label="Logo Ethereal X"></div>
+      <div class="brand-name"><b>ETHEREAL</b> X</div>
+      <div class="brand-sub">STREAMING</div>
+    </div>
+
+    <div class="alert alert-error" id="alertaErro" role="alert" aria-live="polite"></div>
+
+    <form id="formRegistro" novalidate>
+      <div class="field field-icon-wrap">
+        <label for="nome">Nome</label>
+        <span class="f-ico" aria-hidden="true">👤</span>
+        <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?"
+               autocomplete="name" required />
+      </div>
+
+      <div class="field field-icon-wrap">
+        <label for="email">E-mail</label>
+        <span class="f-ico" aria-hidden="true">✉️</span>
+        <input type="email" id="email" name="email" placeholder="seu@email.com"
+               autocomplete="email" required />
+      </div>
+
+      <div class="field field-icon-wrap">
+        <label for="senha">Senha</label>
+        <span class="f-ico" aria-hidden="true">🔒</span>
+        <input type="password" id="senha" name="senha" placeholder="Mínimo 6 caracteres"
+               autocomplete="new-password" minlength="6" required />
+        <button type="button" class="f-toggle" id="toggleSenha"
+                aria-label="Mostrar senha" title="Mostrar/ocultar senha">👁</button>
+      </div>
+
+      <div class="field field-icon-wrap">
+        <label for="confirmarSenha">Confirmar senha</label>
+        <span class="f-ico" aria-hidden="true">🔒</span>
+        <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Repita a senha"
+               autocomplete="new-password" minlength="6" required />
+        <button type="button" class="f-toggle" id="toggleConfirmar"
+                aria-label="Mostrar confirmação de senha" title="Mostrar/ocultar senha">👁</button>
+      </div>
+
+      <button type="submit" class="btn-auth-outline" id="btnCriarConta" style="margin-top:6px;">Criar conta</button>
+    </form>
+
+    <div class="divider">ou continue com</div>
+
+    <button class="btn-google" id="btnGoogle" type="button">
+      <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l6-6C34.5 5.1 29.5 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.4-.1-2.5-.4-3.5z"/>
+        <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.3 19 12 24 12c3.1 0 5.8 1.1 8 3l6-6C34.5 5.1 29.5 3 24 3c-7.7 0-14.4 4.4-17.7 10.7z"/>
+        <path fill="#4CAF50" d="M24 45c5.2 0 10-2 13.5-5.2l-6.2-5.2C29.3 36.6 26.8 37.5 24 37.5c-5.3 0-9.7-3.4-11.3-8.1l-6.5 5C9.5 40.4 16.2 45 24 45z"/>
+        <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.2 5.7l6.2 5.2C40.5 36 44 30.5 44 24c0-1.4-.1-2.5-.4-3.5z"/>
+      </svg>
+      Continuar com o Google
+    </button>
+
+    <p class="auth-switch">Já tem uma conta? <a href="login.html">Entrar</a></p>
+  </div>
+</div>
+
+<script src="js/eye-logo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  document.getElementById('logoHost').innerHTML = eyeLogoSVG();
+  iniciarLogoEthereal();
+  iniciarPaginaRegistro();
+
+  // Toggle mostrar/ocultar senha
+  function toggleInput(btnId, inputId) {
+    document.getElementById(btnId).addEventListener('click', function() {
+      const input = document.getElementById(inputId);
+      const visivel = input.type === 'text';
+      input.type = visivel ? 'password' : 'text';
+      this.textContent = visivel ? '👁' : '🙈';
+      this.setAttribute('aria-label', visivel ? 'Mostrar senha' : 'Ocultar senha');
+    });
+  }
+  toggleInput('toggleSenha', 'senha');
+  toggleInput('toggleConfirmar', 'confirmarSenha');
+</script>
+</body>
+</html>

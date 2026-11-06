@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Configurações — Ethereal X</title>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  .settings-cols{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+  @media (max-width: 1100px){ .settings-cols{ grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1 class="page-title">Configurações</h1>
+        <p class="page-sub">Gerencie sua conta e suas preferências.</p>
+      </div>
+    </div>
+
+    <div class="settings-cols">
+      <div class="settings-panel">
+        <h2>Perfil</h2>
+        <form id="formPerfil">
+          <div class="field">
+            <label for="inputNome">Nome</label>
+            <input type="text" id="inputNome" required />
+          </div>
+          <div class="field">
+            <label for="inputEmail">E-mail</label>
+            <input type="email" id="inputEmail" disabled />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Salvar Perfil</button>
+        </form>
+      </div>
+
+      <div class="settings-panel">
+        <h2>Alterar Senha</h2>
+        <form id="formSenha">
+          <div class="field">
+            <label for="inputSenhaAtual">Senha atual</label>
+            <input type="password" id="inputSenhaAtual" required />
+          </div>
+          <div class="field">
+            <label for="inputNovaSenha">Nova senha</label>
+            <input type="password" id="inputNovaSenha" minlength="6" required />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Atualizar Senha</button>
+        </form>
+      </div>
+
+      <div class="settings-panel">
+        <h2>Preferências de Reprodução</h2>
+        <div class="toggle-row">
+          <div><div class="t-label">Reprodução automática</div><div class="t-desc">Começar o próximo episódio sozinho</div></div>
+          <label class="switch"><input type="checkbox" id="toggleAutoplay" class="toggle-preferencia" /><span class="switch-track"></span></label>
+        </div>
+        <div class="toggle-row">
+          <div><div class="t-label">Alta qualidade (HD)</div><div class="t-desc">Prioriza 1080p quando disponível</div></div>
+          <label class="switch"><input type="checkbox" id="toggleHD" class="toggle-preferencia" /><span class="switch-track"></span></label>
+        </div>
+        <div class="toggle-row">
+          <div><div class="t-label">Legendas por padrão</div><div class="t-desc">Ativa legendas automaticamente</div></div>
+          <label class="switch"><input type="checkbox" id="toggleLegendas" class="toggle-preferencia" /><span class="switch-track"></span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-panel" style="margin-top:20px; max-width: 480px;">
+      <h2>Notificações</h2>
+      <div class="toggle-row">
+        <div><div class="t-label">Novos lançamentos</div><div class="t-desc">Avisos de novidades no catálogo</div></div>
+        <label class="switch"><input type="checkbox" id="toggleNovosLancamentos" class="toggle-preferencia" /><span class="switch-track"></span></label>
+      </div>
+      <div class="toggle-row">
+        <div><div class="t-label">Lembretes de "Continue assistindo"</div><div class="t-desc">Avisos pra retomar de onde parou</div></div>
+        <label class="switch"><input type="checkbox" id="toggleContinuarAssistindo" class="toggle-preferencia" /><span class="switch-track"></span></label>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/eye-logo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/components.js"></script>
+<script src="js/settings.js"></script>
+<script>iniciarConfiguracoes();</script>
+</body>
+</html>

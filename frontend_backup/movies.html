@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Filmes — Ethereal X</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1 class="page-title">Filmes</h1>
+        <p class="page-sub">Todo o acervo de filmes do Ethereal X.</p>
+      </div>
+    </div>
+
+    <div class="filter-bar" id="filtroGeneros"></div>
+    <div class="title-grid" id="gridTitulos"></div>
+  </main>
+</div>
+
+<script src="js/eye-logo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/components.js"></script>
+<script src="js/catalog.js"></script>
+<script>iniciarCatalogoPorTipo('filme', 'filmes');</script>
+</body>
+</html>

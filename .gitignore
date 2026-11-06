@@ -1,0 +1,62 @@
+# ==========================================
+# Ethereal X - .gitignore
+# ==========================================
+
+# Dependências (Node.js)
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Arquivos de Variáveis de Ambiente e Credenciais Sensíveis
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Builds e Distribuição (Frontend / Vite)
+dist/
+dist-ssr/
+frontend/dist/
+frontend/dist-ssr/
+build/
+*.local
+
+# Logs e Relatórios
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cache de Compilação
+.cache/
+.vite/
+frontend/.vite/
+*.tsbuildinfo
+
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editores e IDEs (Configurações locais)
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# Arquivos Temporários de Teste / Scratch
+scratch/
+test-results/
+
