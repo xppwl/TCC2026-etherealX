@@ -282,8 +282,8 @@ async function sincronizarTitulosBanco(pool) {
             item.embed_url,
             item.tmdb_id,
             item.imdb_id,
-            item.destaque ? 1 : 0,
-            1,
+            Boolean(item.destaque),
+            true,
           ]
         );
         inseridos++;

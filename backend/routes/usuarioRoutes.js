@@ -100,10 +100,10 @@ router.put('/preferencias', autenticar, async (req, res) => {
       notificacoes_email, notificacoes
     } = req.body;
 
-    const ap = (autoplay !== undefined ? autoplay : autoPlay) ? 1 : 0;
+    const ap = Boolean(autoplay !== undefined ? autoplay : autoPlay);
     const qp = qualidade_padrao || (qualidadeHd ? '1080p' : 'auto');
-    const leg = (legendas_padrao !== undefined ? legendas_padrao : legendas) ? 1 : 0;
-    const notif = (notificacoes_email !== undefined ? notificacoes_email : notificacoes) ? 1 : 0;
+    const leg = Boolean(legendas_padrao !== undefined ? legendas_padrao : legendas);
+    const notif = Boolean(notificacoes_email !== undefined ? notificacoes_email : notificacoes);
 
     await pool.query(
       `UPDATE usuarios 
