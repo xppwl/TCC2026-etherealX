@@ -43,6 +43,7 @@ Desenvolver uma plataforma de streaming completa, intuitiva e de alta performanc
 | **Autenticação** | **JWT + Passport.js + Google OAuth 2.0** | Emissão de tokens de acesso seguros e login social federado. | Padrão da indústria para segurança stateless e OAuth 2.0. |
 | **Serviço de E-mail** | **Nodemailer + SMTP (Gmail TLS)** | Envio automatizado de e-mails de recuperação de senha com tokens de 30min, códigos de verificação e geração de credenciais seguras pelo backend. | Comunicação assíncrona com templates HTML responsivos personalizados. |
 | **Banco de Dados** | **MySQL + MySQL Workbench** | Modelagem relacional, integridade referencial com chaves estrangeiras (`ON DELETE CASCADE`) e persistência. | SGBD relacional robusto, estruturado em 3ª Forma Normal (3FN). |
+| **Integração de Streaming & Metadados** | **EmbedMovies API + TMDB CDN** | Fornecimento dinâmico de Filmes, Séries e Animes/Mangás com posters e backdrops em alta definição (TMDB) e reprodução via player integrado (myembed.biz). | Demonstra consumo avançado de APIs REST públicas, cache com TTL e streaming responsivo via iframes seguros. |
 | **Mobile (Extensão)** | **React Native + Tailwind CSS (NativeWind)** | Versão para dispositivos móveis (Android e iOS). | Código compartilhado multiplataforma consumindo a mesma API REST do Node.js. |
 | **Módulo Python (Auxiliar)** | **Python (FastAPI / Scripts ETL)** | *Ver detalhes abaixo*. | Processamento de dados de recomendação ou carga automatizada do catálogo via APIs externas. |
 

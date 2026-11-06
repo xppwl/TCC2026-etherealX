@@ -53,19 +53,22 @@ CREATE TABLE IF NOT EXISTS generos (
 -- ---------------------------------------------------------
 CREATE TABLE IF NOT EXISTS titulos (
   id_titulo         INT AUTO_INCREMENT PRIMARY KEY,
-  tipo              ENUM('filme','serie') NOT NULL,
-  titulo            VARCHAR(150) NOT NULL,
-  sinopse           TEXT NULL,
-  ano_lancamento    YEAR NULL,
-  classificacao     VARCHAR(10) NULL,     -- ex: "12", "16", "18", "Livre"
-  duracao_minutos   INT NULL,             -- usado quando tipo = 'filme'
-  nota              DECIMAL(3,1) NULL,    -- ex: 8.7
-  poster_url        VARCHAR(255) NULL,    -- capa vertical (cards)
-  banner_url        VARCHAR(255) NULL,    -- capa horizontal (destaque/hero)
-  video_url         VARCHAR(255) NULL,    -- usado quando tipo = 'filme'
-  destaque          BOOLEAN NOT NULL DEFAULT FALSE,
-  em_alta           BOOLEAN NOT NULL DEFAULT FALSE,
-  criado_em         TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  tipo              VARCHAR(30)   NOT NULL DEFAULT 'filme', -- 'filme', 'serie', 'manga', 'anime'
+  titulo            VARCHAR(150)  NOT NULL,
+  sinopse           TEXT          NULL,
+  ano_lancamento    YEAR          NULL,
+  classificacao     VARCHAR(10)   NULL,     -- ex: "12", "16", "18", "Livre"
+  duracao_minutos   INT           NULL,     -- usado quando tipo = 'filme'
+  nota              DECIMAL(3,1)  NULL,     -- ex: 8.7
+  poster_url        VARCHAR(500)  NULL,     -- capa vertical oficial em alta definição (TMDB CDN)
+  banner_url        VARCHAR(500)  NULL,     -- capa horizontal oficial (destaque/hero)
+  video_url         VARCHAR(500)  NULL,     -- link de vídeo ou player embed
+  embed_url         VARCHAR(500)  NULL,     -- URL direta do player EmbedMovies (https://myembed.biz)
+  tmdb_id           INT           NULL,     -- identificador do The Movie Database
+  imdb_id           VARCHAR(50)   NULL,     -- identificador do IMDb
+  destaque          BOOLEAN       NOT NULL DEFAULT FALSE,
+  em_alta           BOOLEAN       NOT NULL DEFAULT FALSE,
+  criado_em         TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
 -- Relação N:N entre títulos e gêneros

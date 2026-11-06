@@ -62,6 +62,12 @@ export default function DetailPage() {
       ? episodioAtual.video_url
       : titulo?.video_url;
 
+  const isEmbed = Boolean(
+    titulo?.embed_url ||
+    (videoUrl && (videoUrl.includes('myembed') || videoUrl.includes('embed') || !videoUrl.endsWith('.mp4')))
+  );
+  const embedSrc = titulo?.embed_url || (isEmbed ? videoUrl : null);
+
   // Restaurar progresso e gerenciar autosave
   useEffect(() => {
     const video = videoRef.current;
@@ -167,14 +173,34 @@ export default function DetailPage() {
         ) : (
           <>
             <div className="player-wrap" id="playerWrap" ref={playerWrapRef}>
-              {videoUrl ? (
+              {isEmbed && embedSrc ? (
+                <iframe
+                  src={embedSrc}
+                  title={titulo.titulo}
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  scrolling="no"
+                  allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                  allowFullScreen
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    minHeight: '480px',
+                    border: 'none',
+                    borderRadius: '16px',
+                    boxShadow: '0 0 35px rgba(123, 47, 247, 0.35)',
+                    backgroundColor: '#000',
+                  }}
+                />
+              ) : videoUrl ? (
                 <video
                   key={videoUrl}
                   ref={videoRef}
                   id="playerVideo"
                   controls
                   preload="metadata"
-                  poster={titulo.banner_url || ''}
+                  poster={titulo.banner_url || titulo.poster_url || ''}
                 >
                   <source src={videoUrl} type="video/mp4" />
                   Seu navegador não suporta reprodução de vídeo.
@@ -183,7 +209,7 @@ export default function DetailPage() {
                 <EmptyState
                   icon="🎬"
                   title="Vídeo indisponível para este título"
-                  description="Ainda não há um arquivo de vídeo cadastrado."
+                  description="Ainda não há um arquivo ou player cadastrado."
                 />
               )}
             </div>
@@ -197,7 +223,13 @@ export default function DetailPage() {
             >
               <div className="detail-hero-content">
                 <div className="detail-tags" id="detailTags">
-                  <span className="pill">{titulo.tipo === 'serie' ? 'Série' : 'Filme'}</span>
+                  <span className="pill">
+                    {titulo.tipo === 'manga' || titulo.tipo === 'anime'
+                      ? 'Mangá / Anime'
+                      : titulo.tipo === 'serie'
+                      ? 'Série'
+                      : 'Filme'}
+                  </span>
                   {titulo.ano_lancamento && <span className="pill">{titulo.ano_lancamento}</span>}
                   {titulo.classificacao && <span className="pill">{titulo.classificacao}</span>}
                   {titulo.nota != null && (

@@ -17,6 +17,7 @@ export default function HomePage() {
 
   const trackEmAltaRef = useRef(null);
   const trackTendenciaRef = useRef(null);
+  const trackMangaRef = useRef(null);
   const searchTimeoutRef = useRef(null);
   const { showToast } = useToast();
   const navigate = useNavigate();
@@ -70,6 +71,7 @@ export default function HomePage() {
   const emAlta = titulos.filter((t) => t.em_alta);
   const listaEmAlta = emAlta.length ? emAlta : titulos.slice(0, 8);
   const listaTendencia = [...titulos].reverse().slice(0, 8);
+  const listaManga = titulos.filter((t) => t.tipo === 'manga' || t.tipo === 'anime');
 
   return (
     <AppShell>
@@ -190,6 +192,32 @@ export default function HomePage() {
               </button>
             </div>
           </section>
+
+          {listaManga.length > 0 && (
+            <section className="row-section">
+              <div className="row-head">
+                <h2>⚡ Mangás & Animes (EmbedMovies)</h2>
+                <Link to="/manga" className="row-head-link">
+                  Ver todos
+                </Link>
+              </div>
+              <div className="row-wrapper">
+                <div className="row-track" ref={trackMangaRef} id="trackManga">
+                  {listaManga.map((t) => (
+                    <TitleCard key={t.id_titulo} titulo={t} />
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  className="row-scroll-btn"
+                  onClick={() => scrollTrack(trackMangaRef, 400)}
+                  aria-label="Rolar para a direita"
+                >
+                  ▶
+                </button>
+              </div>
+            </section>
+          )}
         </>
       )}
     </AppShell>

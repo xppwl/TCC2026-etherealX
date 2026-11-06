@@ -12,6 +12,7 @@ import AuthSucessoPage from './pages/AuthSucessoPage';
 import HomePage from './pages/HomePage';
 import MoviesPage from './pages/MoviesPage';
 import SeriesPage from './pages/SeriesPage';
+import MangaPage from './pages/MangaPage';
 import GenresPage from './pages/GenresPage';
 import FavoritesPage from './pages/FavoritesPage';
 import MyListPage from './pages/MyListPage';
@@ -92,6 +93,23 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <SeriesPage />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/manga"
+              element={
+                <ProtectedRoute>
+                  <MangaPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/animes"
+              element={
+                <ProtectedRoute>
+                  <MangaPage />
                 </ProtectedRoute>
               }
             />

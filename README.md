@@ -6,9 +6,10 @@ histórico ("continue assistindo") e configurações — com player de vídeo
 real (HTML5 `<video>`), identidade visual roxo/preto neon e o logo do
 olho com pupila em espiral que **acompanha o cursor e pisca sozinho**.
 
-- **Backend:** Node.js + Express + MySQL (mysql2) + Nodemailer (SMTP Gmail)
+- **Backend:** Node.js + Express + MySQL (mysql2) + Nodemailer (SMTP Gmail) + EmbedMovies API (TMDB Posters & myembed.biz)
 - **Frontend:** React.js (Vite) + Tailwind CSS + React Router
 - **Autenticação:** e-mail/senha (bcrypt + JWT), Google OAuth (Passport) e Recuperação/Criação de Senha por E-mail (Nodemailer)
+- **Catálogo & Streaming:** Integração com EmbedMovies API para Filmes, Séries e Mangás/Animes com capas oficiais TMDB CDN e player embed responsivo
 - **Banco de dados:** MySQL, modelado e populado com o MySQL Workbench
 
 ---

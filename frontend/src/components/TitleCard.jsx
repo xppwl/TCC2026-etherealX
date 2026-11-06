@@ -25,7 +25,13 @@ export default function TitleCard({ titulo, extra = null }) {
       <div className="card-body">
         <div className="card-title">{titulo.titulo}</div>
         <div className="card-meta">
-          <span className="pill">{titulo.tipo === 'serie' ? 'Série' : 'Filme'}</span>
+          <span className="pill">
+            {titulo.tipo === 'manga' || titulo.tipo === 'anime'
+              ? 'Mangá'
+              : titulo.tipo === 'serie'
+              ? 'Série'
+              : 'Filme'}
+          </span>
           {ano && <span>{ano}</span>}
           {nota && <span className="rating">★ {nota}</span>}
         </div>

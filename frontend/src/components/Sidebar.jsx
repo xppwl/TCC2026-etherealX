@@ -8,6 +8,7 @@ const ITENS_MENU = [
   { path: '/genres', icone: '🎬', texto: 'Gêneros' },
   { path: '/movies', icone: '🎞️', texto: 'Filmes' },
   { path: '/series', icone: '📺', texto: 'Séries' },
+  { path: '/manga', icone: '⚡', texto: 'Mangás & Animes' },
   { path: '/favorites', icone: '🤍', texto: 'Favoritos' },
   { path: '/mylist', icone: '🔖', texto: 'Minha lista' },
   { path: '/history', icone: '🕓', texto: 'Histórico' },
