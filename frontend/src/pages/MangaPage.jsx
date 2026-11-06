@@ -131,3 +131,4 @@ export default function MangaPage() {
     </AppShell>
   );
 }
+
