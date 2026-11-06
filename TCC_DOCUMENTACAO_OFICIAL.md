@@ -70,7 +70,7 @@ A estética do ETHEREAL Streaming baseia-se no conceito **Cyberpunk Glass Neon**
 
 | Tela | Componente / Rota React | Componentes Principais | Alinhamento com o Protótipo |
 |---|---|---|---|
-| **Login (Inicial)** | `LoginPage.jsx` (`/`, `/login`) | Card com borda roxa neon (`#7B2FF7`), inputs ovais em pílula, alternador de senha, "Esqueceu sua senha?", botão "Entrar" vazado e login com Google. É a **página inicial** da aplicação. | 100% idêntico ao slide do Canva. |
+| **Login (Inicial)** | `Page.jsx` (`/`, `/page`, `/login`) | Card com borda roxa neon (`#7B2FF7`), inputs ovais em pílula, alternador de senha, "Esqueceu sua senha?", botão "Entrar" vazado e login com Google. É a **página inicial** da aplicação. | 100% idêntico ao slide do Canva. |
 | **Início** | `HomePage.jsx` (`/home`) | Topbar com busca e avatar, banner de destaque (**South Park**), carrosséis "Em alta" e "Tendências" com rolagem lateral e botão "Ver todos". | 100% idêntico ao slide do Canva. |
 | **Gêneros** | `GenresPage.jsx` (`/genres`) | Grade com 11 cards com suas cores características (Ação, Aventura, Comédia, Drama, Fantasia, Ficção científica, Mistério, Romance, Suspense, Terror, Documentário). | 100% idêntico ao slide do Canva. |
 | **Favoritos** | `FavoritesPage.jsx` (`/favorites`) | Grade de títulos favoritados pelo usuário, cada um com o selo de coração vermelho (`❤️`) sobreposto no canto superior direito do poster. | 100% idêntico ao slide do Canva. |

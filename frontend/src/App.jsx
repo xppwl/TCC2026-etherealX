@@ -4,7 +4,8 @@ import { AuthProvider } from './context/AuthContext';
 import { ToastProvider } from './context/ToastContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
-import LoginPage from './pages/LoginPage';
+import Page from './pages/Page';
+import LoginPage from './pages/Page';
 import RegisterPage from './pages/RegisterPage';
 import EsqueciSenhaPage from './pages/EsqueciSenhaPage';
 import RedefinirSenhaPage from './pages/RedefinirSenhaPage';
@@ -26,10 +27,12 @@ export default function App() {
       <ToastProvider>
         <BrowserRouter>
           <Routes>
-            {/* Página inicial do projeto é a página de login */}
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/login.html" element={<LoginPage />} />
+            {/* Página inicial do projeto (Page / Login) */}
+            <Route path="/" element={<Page />} />
+            <Route path="/page" element={<Page />} />
+            <Route path="/page.html" element={<Page />} />
+            <Route path="/login" element={<Page />} />
+            <Route path="/login.html" element={<Page />} />
 
             {/* Cadastro */}
             <Route path="/register" element={<RegisterPage />} />
